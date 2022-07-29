@@ -16,7 +16,6 @@ class Product(models.Model):
     product_name = models.CharField(max_length=100)
     product_price = models.IntegerField()
     product_quantity = models.IntegerField()
-    product_image = models.ImageField(upload_to='images/')
     product_description = models.CharField(max_length=300)
 
     class Meta:

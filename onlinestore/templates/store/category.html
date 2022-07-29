@@ -1,0 +1,25 @@
+
+{% extends 'store/main.html' %}
+{% block content%}
+<h1> Category List </h1>
+<a href="{% url 'category-add' %}"> Add Category </a>
+
+<table>
+    <tr>
+        <th>Categories</th>
+    </tr>
+    {% for category in categories %}
+    <tr>
+        <td>{{ category.category_name }}</td>
+       <td><a href="{% url 'category-edit' category.id %}"> Edit </a></td>
+         <td><a href="{% url 'category-delete' category.id %}"> Delete </a></td>
+
+    </tr>
+    {% empty %}
+    <h3> No Categories </h3>
+    {% endfor %}
+
+</table>
+
+<a href="{% url 'navigations' %}"> Go Back </a>
+{% endblock content %}

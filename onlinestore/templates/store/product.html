@@ -1,0 +1,27 @@
+{% extends 'store/main.html' %}
+{% block content%}
+
+
+<h1> Product List </h1>
+<a href="{% url 'product-add' %}"> Add Product </a>
+
+
+<table>
+    <tr>
+        <th> Products </th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{ product.product_name }}</td>
+           <td><a href="{% url 'product-edit' product.id %}"> Edit </a></td>
+         <td><a href="{% url 'product-delete' product.id %}"> Delete </a></td>
+
+    </tr>
+    {% empty %}
+    <h3> No Products </h3>
+    {% endfor %}
+
+</table>
+<a href="{% url 'navigations' %}"> Go Back </a>
+
+{% endblock content %}
